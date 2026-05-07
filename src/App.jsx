@@ -51,7 +51,7 @@ export default function App() {
   const totalDeductions = DEDUCTION_KEYS.filter(k => k !== "other")
     .reduce((sum, k) => sum + (parseInt(deductions[k]) || 0), 0);
   const extra = parseInt(deductions.other) || 0;
-  const netTotal = nightTotal - dayTotal - totalDeductions + extra;
+  const netTotal = nightTotal - dayTotal - totalDeductions - extra;
 
   const handleShiftInput = (shift, setShift, denom, val) => {
     setShift(prev => ({ ...prev, [denom]: val }));
